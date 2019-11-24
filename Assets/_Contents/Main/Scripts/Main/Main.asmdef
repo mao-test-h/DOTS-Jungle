@@ -1,0 +1,26 @@
+{
+    "name": "Main",
+    "references": [
+        "GUID:4307f53044263cf4b835bd812fc161a4",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:d8b63aba1907145bea998dd612889d6b",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:75ba480bcafa82942a0c6d77517457be",
+        "GUID:c861cb2f49f924a4aa18e6d9a31572ca",
+        "GUID:6223c9c8ebc3a304bbb8f246b8fdef4b",
+        "GUID:16aa906de31e7184b8ec39a7de7664c4",
+        "GUID:bdd162b652e8afa43abd0cffeaf99226",
+        "GUID:ba6a71f3b591c3b4fac2b092bc4170fd",
+        "GUID:6e2c82e84c26b3b44a02c8589476029b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
