@@ -49,7 +49,7 @@ namespace Main.ECS
             handle = new DestroyJob()
             {
                 CommandBuffer = _entityCommandBufferSystem.CreateCommandBuffer().ToConcurrent(),
-                DeltaTime = Time.deltaTime,
+                DeltaTime = Time.DeltaTime,
             }.Schedule(this, handle);
 
             _entityCommandBufferSystem.AddJobHandleForProducer(handle);

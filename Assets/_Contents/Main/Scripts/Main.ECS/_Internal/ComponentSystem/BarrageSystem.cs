@@ -118,9 +118,9 @@ namespace Main.ECS
         protected override JobHandle OnUpdate(JobHandle inputDeps)
         {
             var handle = inputDeps;
-            handle = new DrummingJob {DeltaTime = Time.deltaTime}.Schedule(this, handle);
-            handle = new AimingJob {DeltaTime = Time.deltaTime}.Schedule(this, handle);
-            handle = new CircleJob {DeltaTime = Time.deltaTime}.Schedule(this, handle);
+            handle = new DrummingJob {DeltaTime = Time.DeltaTime}.Schedule(this, handle);
+            handle = new AimingJob {DeltaTime = Time.DeltaTime}.Schedule(this, handle);
+            handle = new CircleJob {DeltaTime = Time.DeltaTime}.Schedule(this, handle);
             handle = new CheckKillLineJob().Schedule(this, handle);
             return handle;
         }

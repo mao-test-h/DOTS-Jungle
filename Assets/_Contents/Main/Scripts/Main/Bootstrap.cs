@@ -22,7 +22,8 @@ namespace Main
             Debug.unityLogger.logEnabled = false;
 #endif
             _audioPlayer = AudioInitialize();
-            _gameLoop = new GameLoop(_startLoopType, _gameSettings, _audioPlayer);
+            _gameLoop = new GameLoop(_gameSettings, _audioPlayer);
+            _gameLoop.StartLoop(_startLoopType);
         }
 
         void Update() => _gameLoop?.CallUpdate();

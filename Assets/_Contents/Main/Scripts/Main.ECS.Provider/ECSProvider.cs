@@ -33,16 +33,10 @@ namespace Main.ECS.Provider
 
         public ECSProvider()
         {
-            // Create PrefabProvider.
-            {
-                var prefab = Resources.Load<GameObject>(PrefabPath);
-                var instance = UnityEngine.Object.Instantiate(prefab);
-                _prefabProvider = instance.GetComponent<PrefabProvider>();
-                Assert.IsTrue(_prefabProvider != null);
-                _prefabProvider.hideFlags = HideFlags.HideInHierarchy;
-            }
-
-            _entityManager = World.Active.EntityManager;
+            // Get PrefabProvider Reference
+            // HACK: もう少しスマートな取得方法があるかも...
+            _prefabProvider = GameObject.FindObjectOfType<PrefabProvider>();
+            _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
         }
 
         public void CreateDrummingBarrage(in float3 position, in quaternion rotation)

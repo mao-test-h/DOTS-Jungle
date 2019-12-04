@@ -26,10 +26,10 @@ namespace Main
         readonly IAudioPlayer _audioPlayer;
         readonly ECSProvider _ecsProvider;
 
-        readonly BananaTreeGenerator _bananaTreeGenerator;
-        readonly IPlayerActor _playerActor;
-
         readonly IGameLoop[] _gameLoops;
+
+        BananaTreeGenerator _bananaTreeGenerator;
+        IPlayerActor _playerActor;
 
         IGameLoop _currentLoop;
         bool _isUpdatable;
@@ -42,14 +42,28 @@ namespace Main
         public BananaTreeGenerator BananaTreeGenerator => _bananaTreeGenerator;
 
 
-        public GameLoop(GameLoopType startType, GameSettings settings, IAudioPlayer audioPlayer)
+        public GameLoop(GameSettings settings, IAudioPlayer audioPlayer)
         {
             _gameSettings = settings;
             _audioPlayer = audioPlayer;
             _playerData = new PlayerData(_gameSettings.Player.MaxLife);
             _ecsProvider = new ECSProvider();
+            
+            _gameLoops = new IGameLoop[]
+            {
+                new TitleLoop(this),
+                new PreparationLoop(this),
+                new MainLoop(this),
+                new ResultLoop(this),
+                new RetryLoop(this),
+            };
+
+        }
+
+        public void StartLoop(GameLoopType startType)
+        {
             _playerActor = GetPlayerActor();
-            _bananaTreeGenerator = new BananaTreeGenerator(_playerActor.GameObject.transform, _gameSettings, audioPlayer);
+            _bananaTreeGenerator = new BananaTreeGenerator(_playerActor.GameObject.transform, _gameSettings, _audioPlayer);
 
             // HACK. 面倒なので全オブジェクト拾ってきてinterfaceを対象に初期化していく.
             var objs = Object.FindObjectsOfType<GameObject>();
@@ -68,16 +82,7 @@ namespace Main
                 }
             }
 
-            _gameLoops = new IGameLoop[]
-            {
-                new TitleLoop(this),
-                new PreparationLoop(this),
-                new MainLoop(this),
-                new ResultLoop(this),
-                new RetryLoop(this),
-            };
-
-            SetLoop(startType);
+            SetLoop(startType); 
         }
 
         public void CallUpdate()

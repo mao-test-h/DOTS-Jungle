@@ -658,6 +658,7 @@ PlayerSettings:
   switchRatingsInt_9: 0
   switchRatingsInt_10: 0
   switchRatingsInt_11: 0
+  switchRatingsInt_12: 0
   switchLocalCommunicationIds_0: 
   switchLocalCommunicationIds_1: 
   switchLocalCommunicationIds_2: 
@@ -786,7 +787,7 @@ PlayerSettings:
     iPhone: 1
   scriptingBackend:
     Android: 1
-    Standalone: 0
+    Standalone: 1
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}

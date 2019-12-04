@@ -12,7 +12,7 @@ namespace Main.ECS
     sealed class UpdateColliderSystem : JobComponentSystem
     {
         [BurstCompile]
-        struct Job : IJobForEach<Translation, Rotation, ECSSphereCollider>
+        struct UpdateJob : IJobForEach<Translation, Rotation, ECSSphereCollider>
         {
             public void Execute(
                 [ReadOnly] ref Translation translation,
@@ -25,6 +25,6 @@ namespace Main.ECS
         }
 
         protected override JobHandle OnUpdate(JobHandle inputDeps) =>
-            new Job().Schedule(this, inputDeps);
+            new UpdateJob().Schedule(this, inputDeps);
     }
 }

@@ -34,10 +34,10 @@ namespace Main.ECS.Provider.Hybrid
 
         void OnDestroy()
         {
-            var world = World.Active;
+            var world = World.DefaultGameObjectInjectionWorld;
             if (world == null) return;
 
-            var entityManager = World.Active.EntityManager;
+            var entityManager = world.EntityManager;
             if (entityManager.Exists(_entity))
             {
                 entityManager.DestroyEntity(_entity);

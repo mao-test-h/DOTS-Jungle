@@ -14,7 +14,7 @@ namespace Main.ECS
     sealed class FruitfulBananaSystem : JobComponentSystem
     {
         [BurstCompile]
-        struct Job : IJobForEach<
+        struct UpdateJob : IJobForEach<
             Translation,
             Rotation,
             SphericalCoordinates,
@@ -61,9 +61,9 @@ namespace Main.ECS
         }
 
         protected override JobHandle OnUpdate(JobHandle inputDeps)
-            => new Job
+            => new UpdateJob
             {
-                DeltaTime = Time.deltaTime,
+                DeltaTime = Time.DeltaTime,
                 HalfTurnRotateY = Constants.HalfTurnRotateY,
             }.Schedule(this, inputDeps);
     }
