@@ -27,12 +27,12 @@ WebGL版をunityroomで公開中
 
 ## Supported Unity versions
 
-Unity 2019.3.0b12+
+Unity 2019.3.0f1+
 
 ### DOTS Packages
 
-- Entities preview - 0.1.1  
-- Hybrid Renderer preview - 0.1.1  
+- Entities preview.4 - 0.3.0  
+- Hybrid Renderer preview.4 - 0.3.0  
 
 
 
