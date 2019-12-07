@@ -7,7 +7,11 @@ DOTS + MonoBehaviour連携を踏まえたゲームサンプル
 ※画面はunityroomへのアップロード版の物。  
 → このリポジトリのものはゴリラを始めとしたAssetStoreの物は再配布できないので、代わりとなる物に差し替えてあります。
 
-12/7日に解説記事を公開予定
+### 技術解説
+
+[【Unity】DOTS(ECS)を導入したゲームを作る際に設計してみた話](https://qiita.com/mao_/items/a5548f31de479c6831e4)
+
+
 
 ## Supported Unity versions
 
